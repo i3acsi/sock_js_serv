@@ -4,8 +4,6 @@ package com.gasevskyv.org.gasevskyv.ws.server.config;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
@@ -15,16 +13,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Slf4j
 @Configuration
-@Profile("!dev-light")
 @RequiredArgsConstructor
 @EnableWebSocketMessageBroker
 public class WsMessageBrokerConfig implements WebSocketMessageBrokerConfigurer {
 
-//    private final WsConfig wsConfig;
-//    private final RabbitMQProperties rabbitMQProperties;
-
     /**
-     * Конфигурация StompBrokerRelay, в качестве которого используется RabbitMQ.
+     * Конфигурация брокера сообщений, который будет обрабатывать сообщения, отправляемые через WebSocket.
      *
      * @param config - реестр для настройки параметров брокера
      */
@@ -46,7 +40,6 @@ public class WsMessageBrokerConfig implements WebSocketMessageBrokerConfigurer {
                 .setAllowedOriginPatterns("*")
                 .withSockJS();
     }
-
 
 
 }

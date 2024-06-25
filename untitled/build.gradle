@@ -8,9 +8,35 @@ plugins {
 group 'org.gasevskyv'
 version '1.0-SNAPSHOT'
 
+bootJar { enabled = false }
+
+jar {
+    enabled = true
+
+    into 'resources', {
+        from 'resources'
+    }
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "$project.buildDir/generated/src/main/java"
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            "src/main/resources"
+        }
     }
 }
 
