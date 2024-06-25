@@ -22,5 +22,5 @@ gradle/wrapper
 
 .idea
 /.env
-/untitled/gradle/wrapper/gradle-wrapper.jar
-/untitled/gradle/wrapper/gradle-wrapper.properties
+/wsServer/gradle/wrapper/gradle-wrapper.jar
+/wsServer/gradle/wrapper/gradle-wrapper.properties
