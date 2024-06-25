@@ -33,7 +33,7 @@ curl -X POST http://localhost:7080/send/ws \
 <p>Для этого нужно выполнить команду в терминале из корня проекта:
 
 ```
-gradle clean build
+gradle -p wsServer clean build
 ```
 
 Gradle скомпилирует код и создаст jar-файл (build/libs/<project-version>.jar).
@@ -41,5 +41,5 @@ Gradle скомпилирует код и создаст jar-файл (build/lib
 Для запуска приложения нужно выполнить команду в терминале из корня проекта:
 
 ```
-gradle bootRun
+gradle -p wsServer bootRun
 ```

@@ -63,9 +63,3 @@ test {
 }
 
 
-compileJava {
-    options.compilerArgs = [
-            '-Amapstruct.defaultComponentModel=spring'
-    ]
-}
-
