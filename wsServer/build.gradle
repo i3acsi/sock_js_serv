@@ -1,0 +1,71 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+
+}
+
+group 'org.gasevskyv'
+version '1.0-SNAPSHOT'
+
+bootJar { enabled = false }
+
+jar {
+    enabled = true
+
+    into 'resources', {
+        from 'resources'
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "$project.buildDir/generated/src/main/java"
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            "src/main/resources"
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-websocket"
+    compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    testCompileOnly 'org.projectlombok:lombok'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.defaultComponentModel=spring'
+    ]
+}
+

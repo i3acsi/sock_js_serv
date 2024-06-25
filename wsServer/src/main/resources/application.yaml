@@ -1,0 +1,9 @@
+application:
+  title: wsProject
+  version: 0.1.0
+
+server:
+  port: 7080
+
+ws:
+  topic: /topic/1
